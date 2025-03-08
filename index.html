@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IISERites OWN  Platform</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon_io/site.webmanifest">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+ 
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        body {
+            background-image: url('images/bg.jpg');  /* Replace with your image path */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;}
+        content-wrapper {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                min-height: 100vh;}
+        @media screen and (max-width: 768px) {
+            body {
+                 /* Adjust background properties for mobile devices if needed */
+                 background-attachment: scroll;
+                }
+        }
+        /* Header Styles */
+        .header {
+          background: none;
+          padding: 1rem 2rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+       
+
+        .logo {
+            color: #2196f3;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+          margin-left: 9rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            float:left;
+        }
+        .nav-links a:hover {
+            color: #2196f3;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+          padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.65rem;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover{
+            background-color: #2196f3;}
+
+        .btn-outline {
+            border: 1px solid #333;
+            background: none;
+        }
+        .btn-outline:hover{
+            color: #2196f3;
+        }
+        .hamburger {
+          display: none;
+          cursor: pointer;
+      }
+
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 2rem;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+          .nav-links, .auth-buttons {
+              display: none;
+          }
+
+          .hamburger {
+              display: block;
+          }
+
+          .hero {
+              flex-direction: column;
+              text-align: center;
+              gap: 2rem;
+          }
+
+          .btn-outline, .btn-primary {
+              justify-content: center;
+          }
+
+          .hero-image {
+              max-width: 100%;
+              order: -1;
+            }
+          .features-grid {
+              grid-template-columns: 1fr;
+          }
+      }
+       /* Mobile menu when active */
+       .nav-links.active, .aut-buttons.active{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background-color: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .fimg{
+          float: right;
+          margin: 3px;
+          
+          border-radius: 50%;
+          
+        }
+        .feature-card p{
+          text-align: justify;
+        }
+        
+        .aiauth-buttons {
+          display: flex;
+          gap: 1rem;
+      }
+
+        .aibtn {
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      .aibtn-primary {
+          background-color: #000;
+          color: white;
+          border: none;
+      }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #20BEFF;
+        }
+        .footer {
+          background-color: #f8f9fa;
+          background-color: #f8f9fa;
+          padding: 3rem 0;
+          margin-top: 4rem;
+          border-top: 1px solid #e9ecef;
+        }
+        
+      
+        .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+      
+        .footer-section h3 {
+          color: #212529;
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+          font-weight: 600;
+        }
+      
+        .footer-section ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+      
+        .footer-section ul li {
+          margin-bottom: 0.5rem;
+        }
+      
+        .footer-section ul li a {
+          color: #6c757d;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+      
+        .footer-section ul li a:hover {
+          color: #2196f3;
+        }
+      
+        .footer-bottom {
+          text-align: center;
+          margin-top: 2rem;
+          padding-top: 2rem;
+          border-top: 1px solid #e9ecef;
+          color: #6c757d;
+        }
+      
+        .social-links {
+          display: flex;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+      
+        .social-links a {
+          color: #6c757d;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+      
+        .social-links a:hover {
+          color: #0d6efd;
+        }
+      
+        
+          .mark{
+            background-color: #2196f3;
+            font-weight: 800;
+            color: #e0e0e0;
+          }
+      
+        </style>
+        <link rel="stylesheet" href="dark.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"> WIISER</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pyq.html">PYQ's</a>
+            <a href="assig.html">Tutorials</a>
+            <a href="lab.html">Books</a>
+            <a href="refer.html">References</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="mailto:wiiser0131@gmail.com"><button class="btn btn-outline">Contact Us</button></a>
+            <a href="#"><button class="btn btn-primary">Join us </button></a>
+            <button id="dark-mode-toggle" class="btn btn-outline">🌙</button>
+        </div>
+        
+      
+        <div class="hamburger">☰</div>
+    </header>
+    <marquee class="mark">
+      <p>Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Fully fuctioning for SEMESTER-2 students now. Further upgrades will come soon.</p>
+    </marquee>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>IISERites own Platform</h1>
+            <br>
+            <p> A place where all of you can access standard books,well written notes, Assignments, Previous year papers, Lab work and various reference links to increase your understanding .</p>
+            <div id="g_id_onload"
+                data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin" data-type="standard"></div>
+
+        </div>
+        <div class="hero-image">
+            <img src="images/charnew.svg" width="625px">
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Learners</h3>
+                <img src="images/home logo.png" class="fimg" width="90px">
+                <p>Take a deep dive into comprehensive notes, PYQ's, Assignments, to enhance your academic performance effectively. </p>
+                <br>
+                <ul class="feature-list">
+                    
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>Developers</h3>
+                <p>Facilitating easier access to resources in an efficient and innovative manner.</p>
+                <br>
+                <h5>BY THE STUDENTS, FOR THE STUDENTS</h5>
+                <br>
+            </div>
+            <div class="feature-card">
+                <h3>Take Help</h3>
+                <img src="images/chatgpt.png" width="80px" class="fimg">
+                <p>Click on button below to access AI and resolve doubts and queries</p>
+                <br>
+                <div class="aiauth-buttons">
+                
+                <a href="https://chatgpt.com"><button class="aibtn aibtn-primary"><h2>Open AI</h2></button></a>
+                
+                <!--<br>
+                <ul class="feature-list">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>-->
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="stats">
+        <h2>Tackle your this semester with WIISER</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>65+</h3>
+                <p>DATASETS</p>
+            </div>
+            <div class="stat-item">
+                <h3>24+</h3>
+                <p>BOOKS</p>
+            </div>
+            <div class="stat-item">
+                <h3>96+</h3>
+                <p>PYQ's</p>
+            </div>
+        </div>
+    </section>
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About</h3>
+            <ul>
+              <li><a href="about.html">About WIISER</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="mailto:wiiser0131@gmail.com">Contact Us</a></li>
+              <li><a href="#">Join Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="notes.html">Notes</a></li>
+              <li><a href="pyq.html">PYQ's</a></li>
+              <li><a href="lab.html">Lab Work</a></li>
+              <li><a href="assig.html">Assignments</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Help & Support</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <ul>
+              <li><a href="#">Discord Community</a></li>
+              <li><a href="https://forms.gle/eU2yr8PLGFt3h8dn7"> Feedback </a></li>
+              <li><a href="#">Report an Issue</a></li>
+            </ul>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-insta"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2024 WIISER. All rights reserved.</p>
+        </div>
+      </footer>
+      
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const authButtons = document.querySelector('.auth-buttons');
+
+  hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      authButtons.classList.toggle('active');
+  });
+ 
+    function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+        // You can send this token to your backend for verification and user authentication
+    }
+  
+    window.onload = function () {
+        google.accounts.id.initialize({
+            client_id: "YOUR_GOOGLE_CLIENT_ID",
+            callback: handleCredentialResponse
+        });
+  
+        google.accounts.id.renderButton(
+            document.querySelector(".g_id_signin"),  // Ensure this matches the div class
+            { theme: "filled", size: "large" }  // Customize the button appearance
+        );
+  
+        google.accounts.id.prompt(); // Automatically show the prompt if needed
+    };</script>
+<script src="dark.js"></script>
+</body>
