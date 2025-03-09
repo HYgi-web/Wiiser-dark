@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IISERites OWN  Platform</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon_io/site.webmanifest">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
- 
-
     <style>
         * {
             margin: 0;
@@ -39,12 +31,11 @@
         }
         /* Header Styles */
         .header {
-          background: none;
-          padding: 1rem 2rem;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            border-bottom: 1px solid #e0e0e0;
         }
        
 
@@ -55,7 +46,6 @@
         }
 
         .nav-links {
-          margin-left: 9rem;
             display: flex;
             gap: 2rem;
         }
@@ -76,10 +66,9 @@
         }
 
         .btn {
-          padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.65rem;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -136,6 +125,8 @@
             margin-bottom: 2rem;
             line-height: 1.6;
         }
+        
+
         @media (max-width: 768px) {
           .nav-links, .auth-buttons {
               display: none;
@@ -150,6 +141,10 @@
               text-align: center;
               gap: 2rem;
           }
+          .reg-buttons {
+            display: flex;
+            gap: 1rem;
+        }
 
           .btn-outline, .btn-primary {
               justify-content: center;
@@ -163,18 +158,44 @@
               grid-template-columns: 1fr;
           }
       }
+
        /* Mobile menu when active */
-       .nav-links.active, .aut-buttons.active{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 1rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+ 
+            /* Ensure the nav and auth buttons appear as a vertical menu */
+        .nav-links.active {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: white;
+          padding: 2px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .auth-buttons.active {
+          display: flex;
+          flex-direction: column; /* Stack buttons vertically */
+          position:absolute;
+         
+          top: calc(342px); /* Push below nav-links */
+          left: 0;
+          right: 0;
+          background: white;
+          padding: 2px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          gap: 4px; /* Adds space between buttons */
+          align-items: center; /* Center buttons */
+        }
+        
+          
+      
+        .reg-buttons  { display: flex;
+        gap: 1rem;
+        justify-content: center;
+          }
+
         /* Features Section */
         .features {
             padding: 4rem 2rem;
@@ -258,87 +279,84 @@
             color: #20BEFF;
         }
         .footer {
-          background-color: #f8f9fa;
-          background-color: #f8f9fa;
-          padding: 3rem 0;
-          margin-top: 4rem;
-          border-top: 1px solid #e9ecef;
-        }
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #e9ecef;
+          }
         
-      
-        .footer-content {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1rem;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
-        }
-      
-        .footer-section h3 {
-          color: #212529;
-          font-size: 1.25rem;
-          margin-bottom: 1rem;
-          font-weight: 600;
-        }
-      
-        .footer-section ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-      
-        .footer-section ul li {
-          margin-bottom: 0.5rem;
-        }
-      
-        .footer-section ul li a {
-          color: #6c757d;
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
-      
-        .footer-section ul li a:hover {
-          color: #2196f3;
-        }
-      
-        .footer-bottom {
-          text-align: center;
-          margin-top: 2rem;
-          padding-top: 2rem;
-          border-top: 1px solid #e9ecef;
-          color: #6c757d;
-        }
-      
-        .social-links {
-          display: flex;
-          gap: 1rem;
-          margin-top: 1rem;
-        }
-      
-        .social-links a {
-          color: #6c757d;
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
-      
-        .social-links a:hover {
-          color: #0d6efd;
-        }
-      
+          .footer-content {
+         
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+          }
+        
+          .footer-section h3 {
+            color: #212529;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          }
+        
+          .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+        
+          .footer-section ul li {
+            margin-bottom: 0.5rem;
+          }
+        
+          .footer-section ul li a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.2s ease;
+          }
+        
+          .footer-section ul li a:hover {
+            color: #2196f3;
+          }
+        
+          .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+          }
+        
+          .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+          }
+        
+          .social-links a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.2s ease;
+          }
+        
+          .social-links a:hover {
+            color: #0d6efd;
+          }
         
           .mark{
             background-color: #2196f3;
             font-weight: 800;
             color: #e0e0e0;
           }
-      
         </style>
         <link rel="stylesheet" href="dark.css">
 </head>
 <body>
     <header class="header">
-        <div class="logo"> WIISER</div>
+        <div class="logo">WIISER</div>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="notes.html">Notes</a>
@@ -351,9 +369,8 @@
             <a href="mailto:wiiser0131@gmail.com"><button class="btn btn-outline">Contact Us</button></a>
             <a href="#"><button class="btn btn-primary">Join us </button></a>
             <button id="dark-mode-toggle" class="btn btn-outline">🌙</button>
+           
         </div>
-        
-      
         <div class="hamburger">☰</div>
     </header>
     <marquee class="mark">
@@ -379,16 +396,10 @@
             <h1>IISERites own Platform</h1>
             <br>
             <p> A place where all of you can access standard books,well written notes, Assignments, Previous year papers, Lab work and various reference links to increase your understanding .</p>
-            <div id="g_id_onload"
-                data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-callback="handleCredentialResponse"
-                data-auto_prompt="false">
+            <div class="reg-buttons">
+                <button class="btn btn-primary">Register with Google</button>
+                <button class="btn btn-outline">Register with Email</button>
             </div>
-
-            <div class="g_id_signin" data-type="standard"></div>
-
         </div>
         <div class="hero-image">
             <img src="images/charnew.svg" width="625px">
@@ -431,8 +442,6 @@
             </div>
         </div>
     </section>
-    
-    
 
     <section class="stats">
         <h2>Tackle your this semester with WIISER</h2>
@@ -451,7 +460,7 @@
             </div>
         </div>
     </section>
-    <footer id="footer" class="footer">
+    <footer class="footer">
         <div class="footer-content">
           <div class="footer-section">
             <h3>About</h3>
@@ -503,8 +512,8 @@
           <p>&copy; 2024 WIISER. All rights reserved.</p>
         </div>
       </footer>
-      
 
+</body>
 <script>
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
@@ -514,24 +523,6 @@
       navLinks.classList.toggle('active');
       authButtons.classList.toggle('active');
   });
- 
-    function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-        // You can send this token to your backend for verification and user authentication
-    }
-  
-    window.onload = function () {
-        google.accounts.id.initialize({
-            client_id: "YOUR_GOOGLE_CLIENT_ID",
-            callback: handleCredentialResponse
-        });
-  
-        google.accounts.id.renderButton(
-            document.querySelector(".g_id_signin"),  // Ensure this matches the div class
-            { theme: "filled", size: "large" }  // Customize the button appearance
-        );
-  
-        google.accounts.id.prompt(); // Automatically show the prompt if needed
-    };</script>
+</script>
 <script src="dark.js"></script>
-</body>
+</html>
