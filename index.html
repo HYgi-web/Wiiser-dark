@@ -31,57 +31,62 @@
         }
         /* Header Styles */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            border-bottom: 1px solid #e0e0e0;
+          background: none;
+          padding: 1rem 2rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
        
 
         .logo {
-            color: #2196f3;
-            font-size: 1.5rem;
-            font-weight: bold;
+          color: #2196f3;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-decoration: none;
         }
 
         .nav-links {
-            display: flex;
-            gap: 2rem;
+          margin-left: 9rem;
+          display: flex;
+          gap: 2rem;
+          align-items: center;
         }
 
         .nav-links a {
-            display: block;
-            text-decoration: none;
-            color: #333;
-            float:left;
+          text-decoration: none;
+          color: #333;
+          font-size: 1rem;
+          transition: color 0.2s;
         }
         .nav-links a:hover {
             color: #2196f3;
         }
 
         .auth-buttons {
-            display: flex;
-            gap: 1rem;
+          display: flex;
+          gap: 1rem;
         }
 
         .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          text-decoration: none;
+          font-size: 0.65rem;
         }
 
         .btn-primary {
-            background-color: #000;
-            color: white;
-            border: none;
+          background-color: #000;
+          color: white;
         }
         .btn-primary:hover{
             background-color: #2196f3;}
 
         .btn-outline {
-            border: 1px solid #333;
-            background: none;
+          border: 1px solid #333;
+          color: #333;
+          background-color: none;
         }
         .btn-outline:hover{
             color: #2196f3;
